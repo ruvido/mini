@@ -20,8 +20,8 @@ desktop:  1680px;
 /*=====================================================*/
 /* Dark mode styles */
 @media (prefers-color-scheme: dark) {
-    p {
-        background-color: red;
+    html {
+        background-color: #242933;
         color: white;
     }
 }

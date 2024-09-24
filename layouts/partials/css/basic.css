@@ -14,4 +14,11 @@ main {
 .content {
     margin: 20px 0;
 }
-
+.cover {
+    max-width: 400px;
+    width: 100%;
+}
+h2 {
+    padding-top:20px;
+    padding-bottom:10px;
+}
