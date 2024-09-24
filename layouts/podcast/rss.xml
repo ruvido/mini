@@ -36,7 +36,7 @@
     <itunes:explicit>no</itunes:explicit>
 
 	<!--{{ $rootURL := print "https://" .Params.Prefix .Params.Storage }}-->
-    {{ $defaultContent := $podcast.description.episode | markdownify }}
+    {{ $defaultContent := $podcast.description.episode | markdownify | safeHTML }}
 	{{ $storageURL := print $podcast.audio }}
 	{{ range where .Site.RegularPages "Type" "podcast" }}
 
@@ -52,7 +52,7 @@
         <itunes:episodeType>full</itunes:episodeType>
         <itunes:episode>{{ .Params.Number }}</itunes:episode>
         <itunes:season>{{ .Params.Season }}</itunes:season>
-        <title>{{ .Params.Title }}</title>
+        <title>{{ htmlUnescape .Params.Title | safeHTML }}</title>
         <description>{{ $content  | safeHTML }}</description>
         <itunes:image href="{{ $cover }}"/>
         <link>{{ .Permalink }}</link>
