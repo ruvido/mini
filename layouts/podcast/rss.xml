@@ -11,7 +11,7 @@
 {{ $podcast := .Site.Data.podcast }}
 {{ $cover   := urls.JoinPath $podcast.site $podcast.cover }}
 <!--{{ $safeContent := .Content | safeHTML }}-->
-{{ $safeContent := $podcast.description | safeHTML }}
+{{ $safeContent := $podcast.description.general | safeHTML }}
 {{ $content := print "<![CDATA[" $safeContent "]]>" }}
 <channel>
 	<atom:link href="{{ urls.JoinPath $podcast.site .Params.url }}" rel="self" type="application/rss+xml" />
@@ -36,7 +36,7 @@
     <itunes:explicit>no</itunes:explicit>
 
 	<!--{{ $rootURL := print "https://" .Params.Prefix .Params.Storage }}-->
-    {{ $defaultContent := .Content }}
+    {{ $defaultContent := $podcast.description.episode | markdownify }}
 	{{ $storageURL := print $podcast.audio }}
 	{{ range where .Site.RegularPages "Type" "podcast" }}
 

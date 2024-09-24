@@ -1,3 +1,5 @@
 <footer>
-    <p>&copy; {{ .Site.Params.copyright.since }}{{ if ne (now.Format "2006") .Site.Params.copyright.since }}-{{ now.Format "2006" }}{{ end }} {{ .Site.Params.copyright.author }}. {{ i18n "footer.copyright" }}</p>
+    <!--<img src="/images/by-nc-nd-100.png">-->
+    <p><b>{{ .Site.Data.podcast.copyright.author }}</b> {{.Site.Data.podcast.copyright.since }}-{{ now.Format "2006" }}</p>
+    <p><b>No Ads, No Tracking, No Cookies</b></p>
 </footer>
