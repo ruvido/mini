@@ -36,10 +36,10 @@
     <itunes:explicit>no</itunes:explicit>
 
     {{/* $rootURL := print "https://" .Params.Prefix .Params.Storage */}}
-    {{/* range where .Site.RegularPages "Type" "podcast" */}}
+    {{/* range where .Pages "Type" "ne" "feed" */}}
     {{ $defaultContent := $podcast.description.episode | markdownify | safeHTML }}
 	{{ $storageURL := print $podcast.audio }}
-    {{ range where .Pages "Type" "ne" "feed" }}
+    {{ range where .Site.RegularPages "Type" "podcast" }}
 
     {{ with .Content }}
     {{/*   {{ $content = print "<![CDATA[" . "<hr>" $defaultContent "]]>" }} */}}
