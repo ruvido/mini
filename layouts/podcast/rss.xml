@@ -1,3 +1,7 @@
+{{.Params.layout}}
+{{ range .Pages }}
+caz
+{{end}}
 {{ "<?xml version='1.0' encoding='utf-8'?>" | safeHTML }}
 <rss version="2.0"
 	xmlns:content="http://purl.org/rss/1.0/modules/content/"
@@ -39,7 +43,7 @@
     {{/* range where .Pages "Type" "ne" "feed" */}}
     {{ $defaultContent := $podcast.description.episode | markdownify | safeHTML }}
 	{{ $storageURL := print $podcast.audio }}
-    {{ range where .Pages "File.BaseFileName" "ne" "feed" }}
+    {{ range .Site.RegularPages }}
 
     {{ with .Content }}
     {{/*   {{ $content = print "<![CDATA[" . "<hr>" $defaultContent "]]>" }} */}}
