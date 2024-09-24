@@ -1,0 +1,17 @@
+.page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Make the container take at least the full height of the viewport */
+    padding: 20px 20px; /* Add padding around the entire page */
+    box-sizing: border-box; /* Ensure padding is included in the total width/height */
+}
+header {
+    margin: 20px 0;
+}
+main {
+    flex: 1;
+}
+.content {
+    margin: 20px 0;
+}
+

@@ -5,13 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ .Site.BaseURL }}css/styles.css">
     <title>{{ .Title }}</title>
+
+    <style>
+{{ partial "css/reset.css"      .  | print | safeCSS }}
+{{ partial "css/basic.css"      .  | print | safeCSS }}
+{{ partial "css/extra.css"      .  | print | safeCSS }}
+{{ partial "css/media.css"      .  | print | safeCSS }}
+    </style>
+
 </head>
+
+
+
 <body>
-    {{ partial "header.html" . }}
-    <main>
-        {{ block "main" . }}{{ end }}
-    </main>
-    {{ partial "footer.html" . }}
-    <script src="{{ .Site.BaseURL }}js/scripts.js"></script>
+    <div class="page">
+        {{ partial "header.html" . }}
+        <main>
+            {{ block "main" . }}{{ end }}
+        </main>
+        {{ partial "footer.html" . }}
+        <script src="{{ .Site.BaseURL }}js/scripts.js"></script>
+    </div>
 </body>
 </html>
+
+

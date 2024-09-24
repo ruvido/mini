@@ -1,0 +1,12 @@
+.maxwidth {
+    width: 100%;
+    max-width: 100%;
+}
+.fullwidth {
+    margin-left: calc(-20px); /* Negative margin equal to the padding */
+    margin-right: calc(-20px); /* Negative margin equal to the padding */
+    width: calc(100% + 40px); /* Full width accounting for the negative margins */
+    /*padding: 20px; /* Optional: Add padding inside the full-width element */*/
+    /*background: #f0f0f0; /* Optional: Background color for visibility */*/
+}
+

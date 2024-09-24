@@ -1,0 +1,27 @@
+/*=====================================================*/
+/*=====================================================*/
+/* BREAKPOINTS 
+iphone-7:  375px;
+iphone-12: 390px;
+tablet:    768px;
+laptop:   1366px;
+desktop:  1680px;
+*/
+/*------------------------ IPHONE-7 breakpoint */
+@media (min-width: 375px) { 
+}
+/*------------------------ TABLET breakpoint */
+@media (min-width: 768px) { 
+}
+/*------------------------ LAPTOP breakpoint */
+@media (min-width:1366px) { 
+}
+/*=====================================================*/
+/*=====================================================*/
+/* Dark mode styles */
+@media (prefers-color-scheme: dark) {
+    p {
+        background-color: red;
+        color: white;
+    }
+}
