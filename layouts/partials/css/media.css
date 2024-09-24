@@ -12,9 +12,16 @@ desktop:  1680px;
 }
 /*------------------------ TABLET breakpoint */
 @media (min-width: 768px) { 
+    .page{max-width: 768px;}
 }
 /*------------------------ LAPTOP breakpoint */
 @media (min-width:1366px) { 
+    article {
+        margin-top:40px;
+    }
+    article h1 {font-size:48px;}
+    .content p {font-size: 20px;}
+    .cover {margin: 10px auto;}
 }
 /*=====================================================*/
 /*=====================================================*/
