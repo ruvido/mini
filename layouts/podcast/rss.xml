@@ -32,7 +32,7 @@ caz
       <itunes:email>{{ $podcast.email }}</itunes:email>
     </itunes:owner>
 	<itunes:image href="{{ $cover }}"/>
-	{{ range $podcast.Categories }}
+	{{ range $podcast.categories }}
 	<itunes:category text="{{ .main }}">
 		<itunes:category text="{{ .subc }}" />
 	</itunes:category>
