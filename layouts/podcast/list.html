@@ -1,14 +1,15 @@
 {{ define "main" }}
 <ul>
     {{ $currentSeason := "" }} <!-- Initialize a variable to track the current season -->
-    {{ range where .Pages "Type" "ne" "feed" }}
+    {{/* range where .Pages "Type" "ne" "feed" */}}
+    {{ range where .Pages "File.BaseFileName" "ne" "feed" }}
         {{ $season := .Params.season }} <!-- Get the season from the current post's front matter -->
         
         {{ if ne $season $currentSeason }} <!-- Check if the season has changed -->
             {{ $currentSeason = $season }} <!-- Update the current season -->
             <h2>Stagione {{ $season }}</h2> <!-- Output the season title -->
         {{ end }}
-        <li><a href="{{ .RelPermalink }}">{{with .Params.number }}{{.}}.{{end}} {{ .Title }}</a></li>
+        <li>{{.Params.url}}<a href="{{ .RelPermalink }}">{{with .Params.number }}{{.}}.{{end}} {{ .Title }}</a></li>
     {{ end }}
 </ul>
 {{ end }}

@@ -39,7 +39,7 @@
     {{/* range where .Pages "Type" "ne" "feed" */}}
     {{ $defaultContent := $podcast.description.episode | markdownify | safeHTML }}
 	{{ $storageURL := print $podcast.audio }}
-    {{ range where .Site.RegularPages "Type" "podcast" }}
+    {{ range where .Pages "File.BaseFileName" "ne" "feed" }}
 
     {{ with .Content }}
     {{/*   {{ $content = print "<![CDATA[" . "<hr>" $defaultContent "]]>" }} */}}
