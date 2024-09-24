@@ -1,0 +1,33 @@
+site = "podcast.loremipsum.io"
+title = "LoremIpsum Podcast ⭐️ the journey of random thoughts"
+author = "John and Jane Doe"
+email = "contact@loremipsum.io"
+cover = "images/lorem-ipsum-cover.jpg"
+language = "en-us"
+storage = "https://storage.loremipsum.io/episodes"
+[copyright] 
+author = "Lorem Ipsum Corp"
+since = "1999"
+
+[categories]
+[[categories.main]]
+main = "Philosophy"
+subc = "Self-Reflection"
+
+[[categories.main]]
+main = "Health & Fitness"
+subc = "Wellness"
+
+[[categories.main]]
+main = "Arts"
+subc = "Visual Arts"
+
+description = """
+#LoremIpsum Podcast! Every Monday, a new episode filled with musings on life and self-discovery.
+John and Jane Doe, with their candid and humorous style, will offer insights on relationships,
+faith, and the personal journey. For more, check out articles and testimonials on loremipsum.io
+or visit the YouTube channel.
+
+Hitting the mark in love is hitting the mark in life.
+"""
+

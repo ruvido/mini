@@ -1,0 +1,75 @@
+{{ "<?xml version='1.0' encoding='utf-8'?>" | safeHTML }}
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+	xmlns:media="http://search.yahoo.com/mrss/">
+{{ $podcast := .Site.Data.podcast }}
+{{ $cover   := urls.JoinPath $podcast.site $podcast.cover }}
+<!--{{ $safeContent := .Content | safeHTML }}-->
+{{ $safeContent := $podcast.description | safeHTML }}
+{{ $content := print "<![CDATA[" $safeContent "]]>" }}
+<channel>
+	<atom:link href="{{ urls.JoinPath $podcast.site .Params.url }}" rel="self" type="application/rss+xml" />
+	<lastBuildDate>{{ now.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</lastBuildDate>
+	<title>{{ $podcast.title }}</title>
+    <link>{{ $podcast.site }}</link>
+	<language>{{ $podcast.language }}</language>
+	<copyright>© {{ $podcast.copyright.since }}-{{ now.Format "2006" }} {{ $podcast.copyright.author }}.</copyright>
+    <itunes:author>{{ $podcast.author }}</itunes:author>
+	<description>{{ $content | safeHTML }}</description>
+    <itunes:type>episodic</itunes:type>
+    <itunes:owner>
+      <itunes:name>{{ $podcast.author }}</itunes:name>
+      <itunes:email>{{ $podcast.email }}</itunes:email>
+    </itunes:owner>
+	<itunes:image href="{{ $cover }}"/>
+	{{ range $podcast.Categories }}
+	<itunes:category text="{{ .main }}">
+		<itunes:category text="{{ .subc }}" />
+	</itunes:category>
+	{{ end }}
+    <itunes:explicit>no</itunes:explicit>
+
+	<!--{{ $rootURL := print "https://" .Params.Prefix .Params.Storage }}-->
+    {{ $defaultContent := .Content }}
+	{{ $storageURL := print $podcast.audio }}
+	{{ range where .Site.RegularPages "Type" "podcast" }}
+
+    {{ with .Content }}
+    {{/*   {{ $content = print "<![CDATA[" . "<hr>" $defaultContent "]]>" }} */}}
+    {{ $content = print "<![CDATA[" . "]]>" }}
+    {{ else }}
+    {{ $content = print "<![CDATA[" $defaultContent "]]>" }}
+    {{ end }}
+
+	<item>
+        {{ $audioURL := urls.JoinPath $storageURL .Params.Audio }}
+        <itunes:episodeType>full</itunes:episodeType>
+        <itunes:episode>{{ .Params.Number }}</itunes:episode>
+        <itunes:season>{{ .Params.Season }}</itunes:season>
+        <title>{{ .Params.Title }}</title>
+        <description>{{ $content  | safeHTML }}</description>
+        <itunes:image href="{{ $cover }}"/>
+        <link>{{ .Permalink }}</link>
+        <enclosure 
+            length="{{ .Params.length }}" 
+            type="audio/mpeg" 
+            url="{{$audioURL}}"
+            />
+        <guid isPermaLink="false">{{ .Params.Guid }}</guid>
+        <pubDate>{{ .Params.date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
+        <itunes:duration>{{ .Params.Duration }}</itunes:duration>
+        <itunes:explicit>no</itunes:explicit>
+    </item>
+
+    {{ end }}
+
+</channel>
+</rss>
+
+

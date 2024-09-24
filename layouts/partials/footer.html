@@ -1,3 +1,3 @@
 <footer>
-    <p>&copy; {{ now.Format "2006" }} Your Name. All rights reserved.</p>
+    <p>&copy; {{ .Site.Params.copyright.since }}{{ if ne (now.Format "2006") .Site.Params.copyright.since }}-{{ now.Format "2006" }}{{ end }} {{ .Site.Params.copyright.author }}. {{ i18n "footer.copyright" }}</p>
 </footer>
