@@ -21,7 +21,11 @@
     {{ end }}
 
     <div class="content">
-        {{ .Content }}
+    {{ with .Content }}
+        {{ . }}
+    {{ else }}
+        {{ .Site.Data.podcast.description.episode | markdownify | safeHTML }}
+    {{ end }}
     </div>
 
 </article>
