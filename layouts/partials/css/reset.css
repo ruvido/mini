@@ -1,7 +1,10 @@
 :root{
+    /*--font-family: "Fira Code";*/
+    /*--font-family: "JetBrains Mono";*/
+    --font-family: "Iosevka";
 	--quarter-font-size: 4px;
 	--half-font-size:    8px;
-	--base-font-size:    16px;
+	--base-font-size:    14px;
 	--double-font-size:  32px;
 	--fourtimes-font-size:  64px;
 
@@ -18,7 +21,7 @@ article,p,ul{margin:0}
 
 menu,nav{margin: var(--half-padding) 0; padding:0; list-style: none}
 a {text-decoration: none; color: inherit; font-weight: bold;}
-body{font-size: var(--base-font-size);}
+body{font-size: var(--base-font-size);font-family: var(--font-family);}
 
 /* stop iOS styling inputs */
 input.text,
