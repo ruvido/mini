@@ -7,7 +7,8 @@
     {{ partial "components/favicon.html" . }}
     <meta property="og:image" content="{{ .Site.BaseURL }}{{.Site.Data.podcast.cover}}">
 
-    <title>{{ .Title | default site.Data.podcast.title.hero }}</title>
+    {{$defaultTitle := print site.Data.podcast.title.hero " "  site.Data.podcast.title.subhero}}
+    <title>{{ .Title | default $defaultTitle}}</title>
 
     <style>
 {{ partial "css/reset.css"      .  | print | safeCSS }}
