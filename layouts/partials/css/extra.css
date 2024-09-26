@@ -20,3 +20,10 @@
 .align-middle {
     display: flex; align-items: center;
 }
+
+.dark-mode {
+  background-color: black;
+  color: white;
+}
+.hero{font-size: 42px;line-height:1;font-style: oblique;}
+

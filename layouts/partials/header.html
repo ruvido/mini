@@ -1,3 +1,9 @@
+{{ $podcast := .Site.Data.podcast }}
 <header>
-    <h1><a href="/">{{ .Site.Data.podcast.title }}</a></h1>
+    <h1>
+        <a href="/">
+        <div class="hero">{{ $podcast.title.hero }}</div>
+        <div class="subhero">{{ $podcast.title.subhero }}</div>
+        </a>
+    </h1>
 </header>

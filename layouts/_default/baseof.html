@@ -15,17 +15,21 @@
 {{ partial "css/media.css"      .  | print | safeCSS }}
     </style>
 
+
 </head>
-
-
 
 <body>
     <div class="page">
-        {{ partial "header.html" . }}
+        {{ if eq .RelPermalink "/" }}
+            {{ partial "header.html" . }}
+        {{ else }}
+            {{ partial "header.html" . }}
+        {{ end }}
         <main>
             {{ block "main" . }}{{ end }}
         </main>
         {{ partial "footer.html" . }}
+        {{/*<button onclick="toggleDarkMode()">tema</button>*/}}
         <script src="{{ .Site.BaseURL }}js/scripts.js"></script>
     </div>
 </body>

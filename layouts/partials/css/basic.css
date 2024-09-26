@@ -18,13 +18,26 @@ main {
     margin: 20px 0;
 }
 .cover {
+    margin: 6px 0;
     max-width: 400px;
     width: 100%;
 }
+article h1{font-size:34px;
+/*font-style: oblique;*/
+line-height:1.0; 
+word-spacing: -4px; 
+letter-spacing: -1px;}
 h2 {
     padding-top:20px;
     padding-bottom:10px;
 }
 footer{
     margin-top: 20px;
+}
+
+li {
+  list-style-type: none;
+}
+li::marker {
+  content: "▶ ";
 }

@@ -2,6 +2,7 @@
     /*--font-family: "Fira Code";*/
     /*--font-family: "JetBrains Mono";*/
     --font-family: "Iosevka Term";
+    --hero-font-family: "Iosevka Term Slab";
     /*--font-family: "Iosevka Term Slab";*/
 	--quarter-font-size: 4px;
 	--half-font-size:    8px;
@@ -17,12 +18,14 @@
 
 }
 html,body {margin: 0; height: 100%;}
-h1,h2,h3,h4,h5,h6{margin:0;}
+h1,h2,h3,h4,h5,h6{margin:0;font-family: var(--hero-font-family);}
 article,p,ul{margin:0}
+h1{font-size: 22px;}
 
 menu,nav{margin: var(--half-padding) 0; padding:0; list-style: none}
 a {text-decoration: none; color: inherit; font-weight: bold;}
 body{font-size: var(--base-font-size);font-family: var(--font-family);}
+h1{font-family: var(--hero-font-family);}
 
 /* stop iOS styling inputs */
 input.text,
@@ -38,3 +41,4 @@ input[type="submit"],
 border-radius: 0;
 background: inherit;
 }
+

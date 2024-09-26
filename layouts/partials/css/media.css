@@ -16,9 +16,9 @@ desktop:  1680px;
 }
 /*------------------------ LAPTOP breakpoint */
 @media (min-width:1366px) { 
-    article {
-        margin-top:40px;
-    }
+    article {margin-top:40px;}
+    .hero {font-size:88px;}
+    h1 {font-size:32px;}
     article h1 {font-size:48px;}
     .content p {font-size: 20px;}
     .cover {margin: 10px auto;}
