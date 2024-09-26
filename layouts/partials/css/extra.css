@@ -10,3 +10,13 @@
     /*background: #f0f0f0; /* Optional: Background color for visibility */*/
 }
 
+.icon-bar {
+    margin-left: 10px;
+}
+.icon-bar img{
+    diplay: inline;
+	max-width: 36px;
+}
+.align-middle {
+    display: flex; align-items: center;
+}

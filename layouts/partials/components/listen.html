@@ -1,0 +1,21 @@
+{{ $podcast := .Site.Data.podcast }}
+
+<div class="align-middle">
+    <p>
+        Ascolta il podcast anche su:
+    </p>
+    <span class="icon-bar">
+        {{ with $podcast.listen.spotify}}
+        <a href="{{.}}">
+            <img src="/icons/podcast/spotify-podcast.png"></a>
+        {{ end }}
+        {{ with $podcast.listen.apple}}
+        <a href="{{.}}">
+            <img src="/icons/podcast/apple-podcast.png"></a>
+        {{ end }}
+        {{ with $podcast.listen.deezer }}
+        <a href="{{.}}">
+            <img src="/icons/podcast/deezer-podcast.png"></a>
+        {{ end }}
+    </span>
+</div>
