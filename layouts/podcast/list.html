@@ -11,7 +11,7 @@
     {{ $currentSeason = $season }} <!-- Update the current season -->
     <h2>Stagione {{ $season }}</h2> <!-- Output the season title -->
     {{ end }}
-    <li>{{.Params.url}}<a href="{{ .RelPermalink }}">{{with .Params.number }}{{.}}.{{end}} {{.Type }} {{ .Title }}</a></li>
+    <li><a href="{{ .RelPermalink }}">{{with .Params.number }}{{.}}.{{end}} {{ .Title }}</a></li>
     {{ end }}
     {{ end }}
 </ul>

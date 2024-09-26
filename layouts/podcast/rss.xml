@@ -30,11 +30,13 @@
 	</itunes:category>
 	{{ end }}
 
-    {{/* $rootURL := print "https://" .Params.Prefix .Params.Storage */}}
-    {{/* range where .Pages "Type" "ne" "feed" */}}
+    {{/* range where .RegularPages "Type" "ne" "feed" */}}
     {{ $defaultContent := $podcast.description.episode | markdownify | safeHTML }}
 	{{ $storageURL := print $podcast.audio }}
-    {{ range where .Site.RegularPages "File.BaseFileName" "ne" "feed" }}
+    {{ $type := .Page.Type }}
+    {{ range where .Site.RegularPages "Type" "eq" $type }}
+    {{ if ne .Params.url "/feed.rss" }} <!-- Check if the season has changed -->
+    {{.}}
 
     {{ with .Content }}
     {{/*   {{ $content = print "<![CDATA[" . "<hr>" $defaultContent "]]>" }} */}}
@@ -63,6 +65,7 @@
         <itunes:explicit>no</itunes:explicit>
     </item>
 
+    {{ end }}
     {{ end }}
 
 </channel>

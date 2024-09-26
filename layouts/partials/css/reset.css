@@ -1,7 +1,8 @@
 :root{
     /*--font-family: "Fira Code";*/
     /*--font-family: "JetBrains Mono";*/
-    --font-family: "Iosevka";
+    --font-family: "Iosevka Term";
+    /*--font-family: "Iosevka Term Slab";*/
 	--quarter-font-size: 4px;
 	--half-font-size:    8px;
 	--base-font-size:    14px;
