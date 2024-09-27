@@ -1,0 +1,26 @@
+
+#search-input {
+    margin-top: var(--base-padding);
+    opacity: 0.7; /* Slight transparency for the placeholder */
+    border: none;
+    border-bottom: 1px solid currentColor; /* Line color matches the text color
+    border-bottom: 1px solid rgba(255, 255, 255, 0.7); /* Line color with 0.7 opacity */
+    background: none;
+    outline: none;
+    color: inherit; /* Inherit the text color */
+    font: inherit; /* Inherit the font from the parent */
+    padding: 5px 0;
+    width: 100%; /* Full width of the container */
+}
+
+#search-input::placeholder {
+    color: inherit; /* Ensure the placeholder has the same color as the text */
+    opacity: 0.7; /* Slight transparency for the placeholder */
+}
+#search-input:focus {
+    opacity: 1.0; /* Slight transparency for the placeholder */
+    border-bottom-color: currentColor; /* Solid line on focus */
+}
+#search-input:focus::placeholder {
+    opacity: 0; /* Make placeholder fully transparent on focus */
+}

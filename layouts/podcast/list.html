@@ -1,21 +1,42 @@
+
 {{ define "main" }}
 {{ partial "components/listen.html" . }}
+<style>
+</style>
 
+<input type="search" id="search-input" placeholder="Cerca un episodio...">
 
-<ul>
+<ul id="episode-list">
     {{ $currentSeason := "" }} <!-- Initialize a variable to track the current season -->
     {{ $type := .Page.Type }}
     {{ range where .Pages "Type" "eq" $type }}
     {{ if ne .Params.url "/feed.rss" }} <!-- Check if the season has changed -->
-    {{.Params.url}}
     {{ $season := .Params.season }} <!-- Get the season from the current post's front matter -->
 
     {{ if ne $season $currentSeason }} <!-- Check if the season has changed -->
     {{ $currentSeason = $season }} <!-- Update the current season -->
-    <h2>Stagione {{ $season }}</h2> <!-- Output the season title -->
+    <h2 class="season">Stagione {{ $season }}</h2> <!-- Output the season title -->
     {{ end }}
-    <li><a href="{{ .RelPermalink }}">{{with .Params.number }}{{.}}.{{end}} {{ .Title }}</a></li>
+    <li class="episode-item"><a href="{{ .RelPermalink }}">{{with .Params.number }}{{.}}.{{end}} {{ .Title }}</a></li>
     {{ end }}
     {{ end }}
 </ul>
+
+
+
+<script>
+    document.getElementById('search-input').addEventListener('input', function() {
+        const filter = this.value.toLowerCase();
+        const episodes = document.querySelectorAll('#episode-list .episode-item');
+        
+        episodes.forEach(function(episode) {
+            const text = episode.textContent.toLowerCase();
+            if (text.includes(filter)) {
+                episode.style.display = '';
+            } else {
+                episode.style.display = 'none';
+            }
+        });
+    });
+</script>
 {{ end }}
