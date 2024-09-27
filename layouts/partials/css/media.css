@@ -8,11 +8,16 @@ laptop:   1366px;
 desktop:  1680px;
 */
 /*------------------------ IPHONE-7 breakpoint */
-@media (min-width: 375px) { 
+/*smaller than average size*/
+@media (max-width: 375px) { 
+    .hero{font-size: 32px;}
 }
 /*------------------------ TABLET breakpoint */
 @media (min-width: 768px) { 
     .page{max-width: 768px;}
+    .hero{font-size: 72px;}
+    .listen-text{display:none;}
+    .listen-text-long{display:inline-block;}
 }
 /*------------------------ LAPTOP breakpoint */
 @media (min-width:1366px) { 

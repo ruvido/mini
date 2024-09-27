@@ -10,12 +10,8 @@
     /*background: #f0f0f0; /* Optional: Background color for visibility */*/
 }
 
-.icon-bar {
-    margin-left: 10px;
-}
 .icon-bar img{
-    diplay: inline;
-	max-width: 36px;
+	max-width: var(--double-padding);
 }
 .align-middle {
     display: flex; align-items: center;
@@ -25,5 +21,5 @@
   background-color: black;
   color: white;
 }
-.hero{font-size: 42px;line-height:1;font-style: oblique;}
-
+.hero{font-size: 38px;line-height:1;font-style: oblique;}
+.listen-text-long {display:none;}

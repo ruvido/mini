@@ -6,7 +6,7 @@
     /*--font-family: "Iosevka Term Slab";*/
 	--quarter-font-size: 4px;
 	--half-font-size:    8px;
-	--base-font-size:    14px;
+	--base-font-size:    16px;
 	--double-font-size:  32px;
 	--fourtimes-font-size:  64px;
 
@@ -19,7 +19,8 @@
 }
 html,body {margin: 0; height: 100%;}
 h1,h2,h3,h4,h5,h6{margin:0;font-family: var(--hero-font-family);}
-article,p,ul{margin:0}
+main,article,p,ul{margin:0; padding:0;}
+/*.page{margin: var(--base-padding);}*/
 h1{font-size: 22px;}
 
 menu,nav{margin: var(--half-padding) 0; padding:0; list-style: none}
@@ -42,3 +43,4 @@ border-radius: 0;
 background: inherit;
 }
 
+li{margin:2px var(--base-padding);}

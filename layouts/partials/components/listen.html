@@ -1,9 +1,8 @@
 {{ $podcast := .Site.Data.podcast }}
 
 <div class="align-middle">
-    <p>
-        Ascolta il podcast anche su:
-    </p>
+    <p class="listen-text">Anche su: &nbsp;</p>
+    <p class="listen-text-long">Ascoltaci anche su:</p>
     <span class="icon-bar">
         {{ with $podcast.listen.spotify}}
         <a href="{{.}}">
