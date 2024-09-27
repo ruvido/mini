@@ -1,8 +1,6 @@
 
 {{ define "main" }}
 {{ partial "components/listen.html" . }}
-<style>
-</style>
 
 <input type="search" id="search-input" placeholder="Cerca un episodio...">
 
@@ -24,19 +22,4 @@
 
 
 
-<script>
-    document.getElementById('search-input').addEventListener('input', function() {
-        const filter = this.value.toLowerCase();
-        const episodes = document.querySelectorAll('#episode-list .episode-item');
-        
-        episodes.forEach(function(episode) {
-            const text = episode.textContent.toLowerCase();
-            if (text.includes(filter)) {
-                episode.style.display = '';
-            } else {
-                episode.style.display = 'none';
-            }
-        });
-    });
-</script>
 {{ end }}
