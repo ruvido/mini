@@ -27,6 +27,14 @@ article h1{font-size:34px;
 line-height:1.0; 
 word-spacing: -4px; 
 letter-spacing: -1px;}
+h1 {
+  /*white-space: nowrap; /* don't wrap the text */*/
+  /*overflow: hidden; /* hide the excess text */*/
+  /*text-overflow: ellipsis; /* add an ellipsis */*/
+  /*word-break: break-word; /* break the word at any point */*/
+  /*max-width:100%;*/
+  /*overflow-wrap: break-word; /* break the word at the end of the line */*/
+}
 h2 {
     padding-top:20px;
     padding-bottom:10px;
