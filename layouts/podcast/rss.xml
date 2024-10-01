@@ -36,7 +36,6 @@
     {{ $type := .Page.Type }}
     {{ range where .Site.RegularPages "Type" "eq" $type }}
     {{ if ne .Params.url "/feed.rss" }} <!-- Check if the season has changed -->
-    {{.}}
 
     {{ with .Content }}
     {{/*   {{ $content = print "<![CDATA[" . "<hr>" $defaultContent "]]>" }} */}}
@@ -47,7 +46,7 @@
 
 	<item>
         {{ $audioURL := urls.JoinPath $storageURL .Params.Audio }}
-        <itunes:episodeType>full</itunes:episodeType>
+        <itunes:episodeType>{{ if .Params.bonus }}bonus{{ else }}full{{ end }}</itunes:episodeType>
         <itunes:episode>{{ .Params.Number }}</itunes:episode>
         <itunes:season>{{ .Params.Season }}</itunes:season>
         <title>{{ htmlUnescape .Params.Title | safeHTML }}</title>
