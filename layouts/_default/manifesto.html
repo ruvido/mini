@@ -1,0 +1,13 @@
+{{ define "main" }}
+<style>
+header * .hero,
+header * {
+    font-size: 18px; !important
+}
+header{padding:0;}
+</style>
+<article class="manifesto">
+    <h1>{{ .Title }}</h1>
+    <div>{{ .Content }}</div>
+</article>
+{{ end }}

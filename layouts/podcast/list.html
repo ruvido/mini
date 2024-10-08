@@ -4,7 +4,7 @@
 
 <input type="search" id="search-input" placeholder="Cerca un episodio...">
 
-<ul id="episode-list">
+<ul id="episode-list" class="marked-list">
     {{ $currentSeason := "" }} <!-- Initialize a variable to track the current season -->
     {{ $type := .Page.Type }}
     {{ range where .Pages "Type" "eq" $type }}

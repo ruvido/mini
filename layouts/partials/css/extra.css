@@ -23,3 +23,21 @@
 }
 .hero{font-size: 38px;line-height:1;font-style: oblique;}
 .listen-text-long {display:none;}
+
+.manifesto {
+    font-size: 20px;
+}
+.manifesto h1 {
+    font-size: 64px;
+}
+.manifesto h2 {
+    font-size: 26px;
+    font-style: italic;
+    padding-top: 10px;
+}
+.manifesto ol {
+}
+.manifesto * li {
+    margin: 0;
+    padding-bottom: 20px;
+}
