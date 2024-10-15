@@ -41,3 +41,9 @@
     margin: 0;
     padding-bottom: 20px;
 }
+.tags {
+    font-size: 16px;
+}
+.details {
+    margin: 20px 0;
+}

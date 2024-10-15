@@ -1,6 +1,30 @@
 {{ define "main" }}
+<style>
+header * .hero,
+header * {
+    font-size: 18px; !important
+}
+header{padding:0;}
+</style>
+
 <article>
+    <hr>
     <h1>{{ .Title }}</h1>
+    <div class="details">
+        {{ with .Date}}
+        <small>{{ .Format "02.01.2006" }}</small>
+        {{end}}
+    </div>
+
     <div>{{ .Content }}</div>
+
+    {{ with .Params.tags}}
+    <hr>
+    <div class="tags">
+        {{ range . }}
+        <span><a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }} | </a></span>
+        {{ end }}
+    </div>
+    {{ end }}
 </article>
 {{ end }}

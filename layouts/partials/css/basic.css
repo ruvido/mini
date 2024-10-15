@@ -22,11 +22,16 @@ main {
     max-width: 400px;
     width: 100%;
 }
-article h1{font-size:34px;
-/*font-style: oblique;*/
-line-height:1.0; 
-word-spacing: -4px; 
-letter-spacing: -1px;}
+article h1{
+    font-size:42px;
+    line-height:1.0; 
+    word-spacing: -4px; 
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+}
+article p {
+    margin-bottom: 20px;
+}
 h1 {
   /*white-space: nowrap; /* don't wrap the text */*/
   /*overflow: hidden; /* hide the excess text */*/
@@ -36,16 +41,45 @@ h1 {
   /*overflow-wrap: break-word; /* break the word at the end of the line */*/
 }
 h2 {
-    padding-top:20px;
+    padding-bottom:10px;
+}
+h3 {
     padding-bottom:10px;
 }
 footer{
     margin-top: 20px;
 }
-
+ul {
+    margin-bottom: 20px;
+}
 .marked-list li {
+    margin-bottom: 10px;
   list-style-type: none;
 }
 .marked-list li::marker {
   content: "▶ ";
+}
+p a {
+    color:  var(--highlight-color);
+}
+hr {
+    max-width: 55%;
+    border: none;
+    height: 1px;
+    /*background-color: #f72585;*/
+    background-color: var(--highlight-color);
+    margin: 20px 0;
+}
+p:first-of-type {
+    font-size: 22px;
+}
+blockquote p:first-of-type {
+    font-size: var(--base-font-size);
+}
+blockquote {
+    display: block;
+    border-left: 8px solid var(--highlight-color); /* Barra a sinistra di 4px di colore giallo */
+    padding-left: 10px; /* Spazio tra la barra e il testo */
+    font-style: italic; /* Testo in corsivo */
+    margin: 10px 0; /* Margine sopra e sotto */
 }

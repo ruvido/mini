@@ -1,0 +1,73 @@
+<center>
+    <form class="search-form shadow" id="emailForm">                             
+        <input type="search" id="emailInput" name="email" placeholder="{{ .Get 0 }}">         
+        <span id="submitButton" class="inverse bigger icon" style="display: inline;">{{ partial "svg/arrow-circle-right.svg" }}</span>
+        <span id="loader" class="icon" style="display: none;">{{ partial "svg/loader.svg" }}</span>
+    </form>     
+    <small id="errorMessage" class="error message" style="display: none;"></small>
+    <div id="successMessage" class="success message" style="display: none;">📥 <strong>Ci sei quasi!</strong> Ti abbiamo mandato una email per <strong>verificare</strong> il tuo indirizzo</div>
+</center>
+
+<script src="/js/pocketbase.umd.js"></script>
+<script>
+    const pb = new PocketBase({{ .Site.Params.pocketbase.server }});
+    const pbListName = 'emails';
+
+    document.getElementById('emailForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        registerEmail();
+    });
+
+    document.getElementById('submitButton').addEventListener('click', registerEmail);
+
+    async function registerEmail() {
+        const emailInput = document.getElementById('emailInput');
+        const email = emailInput.value.trim();
+        const errorMessage = document.getElementById('errorMessage');
+        const successMessage = document.getElementById('successMessage');
+        const loader = document.getElementById('loader');
+        const submitButton = document.getElementById('submitButton');
+
+        errorMessage.style.display = 'none';
+        successMessage.style.display = 'none';
+        loader.style.display = 'none';
+        submitButton.style.display = 'inline';
+
+        if (email === '') {
+            errorMessage.textContent = "⚠️  Campo email vuoto?";
+            errorMessage.style.display = 'block';
+            return;
+        }
+
+        loader.style.display = 'inline';
+        submitButton.style.display = 'none';
+
+        const pbData = {
+            "email": email,
+            "verified": false,
+            "newsletter": true,
+            "password": "123456789",
+            "passwordConfirm": "123456789"
+        };
+
+        try {
+            await pb.collection(pbListName).create(pbData);
+        } catch (err) {
+            console.log('Email is already in db?');
+        }
+
+        try {
+            console.log('Send confirmation email');
+            await pb.collection(pbListName).requestVerification(email);
+            successMessage.style.display = 'block';
+            emailInput.value = "";
+        } catch (err) {
+            errorMessage.textContent = "💀 Ehi! non sembra una email corretta... controlla.";
+            errorMessage.style.display = 'block';
+            console.log('Unable to send confirmation email: bad email format?');
+        } finally {
+            loader.style.display = 'none';
+            submitButton.style.display = 'inline';
+        }
+    }
+</script>

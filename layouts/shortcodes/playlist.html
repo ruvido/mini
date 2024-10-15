@@ -1,0 +1,7 @@
+<ul id="episode-list" class="marked-list">
+
+{{ range first 5 (where .Site.RegularPages "Type" "podcast") }}
+<li class="episode-item"><a href="{{ .RelPermalink }}">{{with .Params.number }}{{.}}.{{end}} {{ .Title }}</a></li>
+{{ end }}
+
+</ul>
