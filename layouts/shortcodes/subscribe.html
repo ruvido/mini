@@ -1,9 +1,9 @@
 <form class="registration" id="registrationForm">                             
     <div class="input-container" id="inputForm">
         <input type="search" id="emailInput" name="email" placeholder="{{ .Get 0 }}">         
-        <div class="submit" id="submitButton">
-            <i class="arrow right"></i>
-            <i id="loader" class="icon" style="display: none;">{{ partial "svg/loader.svg" }}</i>
+        <div class="submit">
+            <i id="submitButton" class="arrow right"></i>
+            <i id="loader" class="loading">invio...</i>
         </div>
     </div>
     <div class="message">
@@ -26,7 +26,6 @@
     });
 
     document.getElementById('submitButton').addEventListener('click', registerEmail);
-
     async function registerEmail() {
         const emailInput = document.getElementById('emailInput');
         const email = emailInput.value.trim();
@@ -36,10 +35,13 @@
         const loader = document.getElementById('loader');
         const submitButton = document.getElementById('submitButton');
 
-        errorMessage.style.display = 'none';
-        successMessage.style.display = 'none';
-        loader.style.display = 'none';
-        submitButton.style.display = 'inline';
+        loader.style.display = 'inline';
+        submitButton.style.display = 'none';
+
+        //errorMessage.style.display = 'none';
+        //successMessage.style.display = 'none';
+        //loader.style.display = 'none';
+        //submitButton.style.display = 'inline';
 
         if (email === '') {
             errorMessage.textContent = "⚠️  Campo email vuoto?";
@@ -47,8 +49,6 @@
             return;
         }
 
-        loader.style.display = 'inline';
-        submitButton.style.display = 'none';
 
         const pbData = {
             "email": email,
@@ -65,6 +65,7 @@
         }
 
         try {
+            errorMessage.style.display = 'none';
             console.log('Send confirmation email');
             await pb.collection(pbListName).requestVerification(email);
             successMessage.style.display = 'block';
@@ -77,7 +78,7 @@
             console.log('Unable to send confirmation email: bad email format?');
         } finally {
             loader.style.display = 'none';
-            submitButton.style.display = 'inline';
+            submitButton.style.display = 'inline-block';
         }
     }
 </script>
