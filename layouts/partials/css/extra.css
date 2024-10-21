@@ -47,3 +47,6 @@
 .details {
     margin: 20px 0;
 }
+.smalltext {
+    font-size: var(--small-font-size);
+}

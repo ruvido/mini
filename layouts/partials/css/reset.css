@@ -6,6 +6,7 @@
     /*--font-family: "Iosevka Term Slab";*/
 	--quarter-font-size: 4px;
 	--half-font-size:    8px;
+	--small-font-size:   14px;
 	--base-font-size:    19px;
 	--double-font-size:  32px;
 	--fourtimes-font-size:  64px;
@@ -15,8 +16,6 @@
 	--double-padding: var(--double-font-size);
 
 	--line-height: 1.4;
-
-    --highlight-color: #f72585;
 
 }
 html,body {margin: 0; height: 100%;}

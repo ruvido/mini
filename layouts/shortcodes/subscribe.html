@@ -1,19 +1,26 @@
-<center>
-    <form class="search-form shadow" id="emailForm">                             
+<form class="registration" id="registrationForm">                             
+    <div class="input-container">
         <input type="search" id="emailInput" name="email" placeholder="{{ .Get 0 }}">         
-        <span id="submitButton" class="inverse bigger icon" style="display: inline;">{{ partial "svg/arrow-circle-right.svg" }}</span>
-        <span id="loader" class="icon" style="display: none;">{{ partial "svg/loader.svg" }}</span>
-    </form>     
-    <small id="errorMessage" class="error message" style="display: none;"></small>
-    <div id="successMessage" class="success message" style="display: none;">📥 <strong>Ci sei quasi!</strong> Ti abbiamo mandato una email per <strong>verificare</strong> il tuo indirizzo</div>
-</center>
+        <div class="submit" id="submitButton">
+            <i class="arrow right"></i>
+            <i id="loader" class="icon" style="display: none;">{{ partial "svg/loader.svg" }}</i>
+        </div>
+    </div>
+    <div class="message">
+        <i class="error"   id="errorMessage"></i>
+        <i class="success" id="successMessage">📥 <strong>Ci sei quasi!</strong> Ti abbiamo mandato una email per <strong>verificare</strong> il tuo indirizzo</i>
+    </div>
+</form>
+
+
+
 
 <script src="/js/pocketbase.umd.js"></script>
 <script>
     const pb = new PocketBase({{ .Site.Params.pocketbase.server }});
     const pbListName = 'emails';
 
-    document.getElementById('emailForm').addEventListener('submit', function(event) {
+    document.getElementById('registrationForm').addEventListener('submit', function(event) {
         event.preventDefault();
         registerEmail();
     });
