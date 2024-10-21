@@ -1,4 +1,9 @@
 :root {
     --highlight-color: #f72585;
+    --success-color: #08A4BD;
+    --success-color-text:#242933; 
+    /*--alert-color: #EA5757;*/
+    --alert-color: #f72585;
+    --alert-color-text:#242933; 
 
 }

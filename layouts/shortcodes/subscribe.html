@@ -1,5 +1,5 @@
 <form class="registration" id="registrationForm">                             
-    <div class="input-container">
+    <div class="input-container" id="inputForm">
         <input type="search" id="emailInput" name="email" placeholder="{{ .Get 0 }}">         
         <div class="submit" id="submitButton">
             <i class="arrow right"></i>
@@ -7,8 +7,8 @@
         </div>
     </div>
     <div class="message">
-        <i class="error"   id="errorMessage"></i>
-        <i class="success" id="successMessage">📥 <strong>Ci sei quasi!</strong> Ti abbiamo mandato una email per <strong>verificare</strong> il tuo indirizzo</i>
+        <div class="error"   id="errorMessage"></div>
+        <div class="success" id="successMessage">📥 <strong>Ci sei quasi!</strong> Ti abbiamo mandato una email per <strong>verificare</strong> il tuo indirizzo</div>
     </div>
 </form>
 
@@ -32,6 +32,7 @@
         const email = emailInput.value.trim();
         const errorMessage = document.getElementById('errorMessage');
         const successMessage = document.getElementById('successMessage');
+        const inputForm = document.getElementById('inputForm');
         const loader = document.getElementById('loader');
         const submitButton = document.getElementById('submitButton');
 
@@ -67,6 +68,8 @@
             console.log('Send confirmation email');
             await pb.collection(pbListName).requestVerification(email);
             successMessage.style.display = 'block';
+            inputForm.style.display = 'none';
+
             emailInput.value = "";
         } catch (err) {
             errorMessage.textContent = "💀 Ehi! non sembra una email corretta... controlla.";
