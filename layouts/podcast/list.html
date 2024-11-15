@@ -2,13 +2,19 @@
 {{ define "main" }}
 {{ partial "components/listen.html" . }}
 
+url:{{.Params.url}}
+
+perma:{{.Permalink}}
+
 <input type="search" id="search-input" placeholder="Cerca un episodio...">
 
 <ul id="episode-list" class="marked-list">
     {{ $currentSeason := "" }} <!-- Initialize a variable to track the current season -->
     {{ $type := .Page.Type }}
     {{ range where .Pages "Type" "eq" $type }}
-    {{ if ne .Params.url "/feed.rss" }} <!-- Check if the season has changed -->
+
+    {{ if not (strings.Contains .Params.url "rss") }}
+
     {{ $season := .Params.season }} <!-- Get the season from the current post's front matter -->
 
     {{ if ne $season $currentSeason }} <!-- Check if the season has changed -->
