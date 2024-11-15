@@ -35,7 +35,8 @@
 	{{ $storageURL := print $podcast.audio }}
     {{ $type := .Page.Type }}
     {{ range where .Site.RegularPages "Type" "eq" $type }}
-    {{ if ne .Params.url "/feed.rss" }} <!-- Check if the season has changed -->
+
+    {{ if not (strings.Contains .Params.url "rss") }}
 
     {{ with .Content }}
     {{/*   {{ $content = print "<![CDATA[" . "<hr>" $defaultContent "]]>" }} */}}
