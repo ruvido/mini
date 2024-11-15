@@ -2,10 +2,6 @@
 {{ define "main" }}
 {{ partial "components/listen.html" . }}
 
-url:{{.Params.url}}
-
-perma:{{.Permalink}}
-
 <input type="search" id="search-input" placeholder="Cerca un episodio...">
 
 <ul id="episode-list" class="marked-list">
